@@ -4,11 +4,12 @@
     <x:Property Name="in_AnalysisPeriod" Type="InArgument(x:Int32)" />
     <x:Property Name="in_AnalysisYear" Type="InArgument(x:Int32)" />
     <x:Property Name="in_CompSetCIKs" Type="InArgument(scg:List(x:String))" />
+    <x:Property Name="out_CompSetCompanyNames" Type="OutArgument(scg:List(x:String))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1338.66666666667,6212.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1338.66666666667,6416.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PullData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -69,10 +70,9 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PullCompSet10-KData" sap:VirtualizedContainerService.HintSize="839.333333333333,6148" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PullCompSet10-KData" sap:VirtualizedContainerService.HintSize="839.333333333333,6312" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="YearNumber" />
       <Variable x:TypeArguments="x:Int32" Name="RowNumber" />
@@ -82,31 +82,32 @@
       <Variable x:TypeArguments="x:String" Name="FilingType" />
       <Variable x:TypeArguments="x:Boolean" Name="XBRLNavbarExists" />
       <Variable x:TypeArguments="x:String" Name="HTMLFormURL" />
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(Of String)]" Name="CompSetCompanyNames" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="797.333333333333,6056" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CompSetCIKs]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="797.333333333333,6118" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CompSetCIKs]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="CIK" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="760.666666666667,5917.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="760.666666666667,5979.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="718.666666666667,5825.33333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[String.Format(&quot;https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK={0}&amp;type=10-K&amp;dateb={1}0630&quot;, CIK, (in_AnalysisYear + 1).ToString)]">
+            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="718.666666666667,5887.33333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[String.Format(&quot;https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK={0}&amp;type=10-K&amp;dateb={1}0630&quot;, CIK, (in_AnalysisYear + 1).ToString)]">
               <ui:OpenBrowser.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="684.666666666667,5722.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="684.666666666667,5784.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -135,6 +136,7 @@
                         </InArgument>
                       </ui:Replace.Replacement>
                     </ui:Replace>
+                    <AddToCollection x:TypeArguments="x:String" Collection="[CompSetCompanyNames]" DisplayName="Add To Collection - CompSetCompanyNames" sap:VirtualizedContainerService.HintSize="642.666666666667,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[CompanyName]" />
                     <Sequence DisplayName="Sequence - Create Folder for Company" sap:VirtualizedContainerService.HintSize="642.666666666667,454" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -641,5 +643,13 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
+    <Assign sap:VirtualizedContainerService.HintSize="797.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[out_CompSetCompanyNames]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[CompSetCompanyNames]</InArgument>
+      </Assign.Value>
+    </Assign>
   </Sequence>
 </Activity>
