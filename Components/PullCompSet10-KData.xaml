@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1338.66666666667,6416.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,6462</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PullData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -72,7 +72,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PullCompSet10-KData" sap:VirtualizedContainerService.HintSize="839.333333333333,6312" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Pull all of the comp set's 10-K filing data posted on the SEC's website based on the Comp Set CIK Input .CSV and save the data in folder structure contained in the root folder path of the comparables analysis chosen by the analyst" DisplayName="PullCompSet10-KData" sap:VirtualizedContainerService.HintSize="839.333333333333,6357.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="YearNumber" />
       <Variable x:TypeArguments="x:Int32" Name="RowNumber" />
@@ -87,6 +87,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="797.333333333333,6118" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CompSetCIKs]">
