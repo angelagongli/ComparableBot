@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1338.66666666667,1489.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,2463.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FillForm_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -69,28 +69,29 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FillForm" sap:VirtualizedContainerService.HintSize="456,1424.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="FillForm" sap:VirtualizedContainerService.HintSize="606,2398.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FormResponse" />
       <Variable x:TypeArguments="njl:JObject" Name="FormResponseObject" />
+      <Variable x:TypeArguments="x:String" Name="KeywordString" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormHeight="{x:Null}" FormTitle="{x:Null}" FormWidth="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form - Prompt User to Input Parameters of Comparables Analysis" FormFieldsOutputData="[FormResponse]" FormSchema="%[{&quot;label&quot;:&quot;Please choose the file path of the .CSV of CIKs of your comparables set:&quot;,&quot;customClass&quot;:&quot;filePath&quot;,&quot;key&quot;:&quot;InputCSVFilePath&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;Select&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;filePath&quot;},{&quot;label&quot;:&quot;Please choose the root folder path to save the 10-K filings of your comparables set:&quot;,&quot;customClass&quot;:&quot;folderPath&quot;,&quot;key&quot;:&quot;RootFolderPath&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;Select&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;filePath&quot;},{&quot;label&quot;:&quot;Please enter the year of analysis:&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;tooltip&quot;:&quot;(Tax Year/Based on December Fiscal Year-End)&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;2020&quot;,&quot;value&quot;:&quot;2020&quot;},{&quot;label&quot;:&quot;2019&quot;,&quot;value&quot;:&quot;2019&quot;},{&quot;label&quot;:&quot;2018&quot;,&quot;value&quot;:&quot;2018&quot;},{&quot;label&quot;:&quot;2017&quot;,&quot;value&quot;:&quot;2017&quot;},{&quot;label&quot;:&quot;2016&quot;,&quot;value&quot;:&quot;2016&quot;},{&quot;label&quot;:&quot;2015&quot;,&quot;value&quot;:&quot;2015&quot;},{&quot;label&quot;:&quot;2014&quot;,&quot;value&quot;:&quot;2014&quot;},{&quot;label&quot;:&quot;2013&quot;,&quot;value&quot;:&quot;2013&quot;},{&quot;label&quot;:&quot;2012&quot;,&quot;value&quot;:&quot;2012&quot;},{&quot;label&quot;:&quot;2011&quot;,&quot;value&quot;:&quot;2011&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;AnalysisYear&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true,&quot;defaultValue&quot;:2020},{&quot;label&quot;:&quot;Please enter the length of the period of analysis:&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;tableView&quot;:true,&quot;defaultValue&quot;:3,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;3-Year Analysis&quot;,&quot;value&quot;:&quot;3&quot;},{&quot;label&quot;:&quot;4-Year Analysis&quot;,&quot;value&quot;:&quot;4&quot;},{&quot;label&quot;:&quot;5-Year Analysis&quot;,&quot;value&quot;:&quot;5&quot;},{&quot;label&quot;:&quot;6-Year Analysis&quot;,&quot;value&quot;:&quot;6&quot;},{&quot;label&quot;:&quot;7-Year Analysis&quot;,&quot;value&quot;:&quot;7&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;AnalysisPeriod&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true},{&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;&lt;b&gt;Please choose all the information from the company's 10-K you want to see for your comparables analysis based on keyword:&lt;/b&gt;&quot;,&quot;key&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;label&quot;},{&quot;label&quot;:&quot;Segment Reporting&quot;,&quot;tooltip&quot;:&quot;Business Segment/Geographic Segment Data&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;SegmentReporting&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Acquisition/Disposition&quot;,&quot;tooltip&quot;:&quot;Company's Acquisition/Disposition Information in the Year of Analysis&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;AcquisitionDisposition&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Income Taxes&quot;,&quot;tooltip&quot;:&quot;Detailed Accounting of Income Taxes&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;IncomeTaxes&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Intangible Assets&quot;,&quot;tooltip&quot;:&quot;Detailed Accounting of Intangible Assets&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;IntangibleAssets&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;R&amp;D Expense&quot;,&quot;tooltip&quot;:&quot;Detailed Information on Company's R&amp;D Expense&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;RDExpense&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="414,1332.66666666667" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+    <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormHeight="{x:Null}" FormTitle="{x:Null}" FormWidth="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form - Prompt User to Input Parameters of the Comparables Analysis" FormFieldsOutputData="[FormResponse]" FormSchema="%[{&quot;label&quot;:&quot;Please choose the file path of the .CSV of CIKs of your comparables set:&quot;,&quot;customClass&quot;:&quot;filePath&quot;,&quot;key&quot;:&quot;InputCSVFilePath&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;Select&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;filePath&quot;},{&quot;label&quot;:&quot;Please choose the root folder path to save the 10-K filings of your comparables set:&quot;,&quot;customClass&quot;:&quot;folderPath&quot;,&quot;key&quot;:&quot;RootFolderPath&quot;,&quot;input&quot;:true,&quot;suffix&quot;:&quot;Select&quot;,&quot;tableView&quot;:true,&quot;type&quot;:&quot;filePath&quot;},{&quot;label&quot;:&quot;Please enter the year of analysis:&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;tooltip&quot;:&quot;(Tax Year/Based on December Fiscal Year-End)&quot;,&quot;tableView&quot;:true,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;2020&quot;,&quot;value&quot;:&quot;2020&quot;},{&quot;label&quot;:&quot;2019&quot;,&quot;value&quot;:&quot;2019&quot;},{&quot;label&quot;:&quot;2018&quot;,&quot;value&quot;:&quot;2018&quot;},{&quot;label&quot;:&quot;2017&quot;,&quot;value&quot;:&quot;2017&quot;},{&quot;label&quot;:&quot;2016&quot;,&quot;value&quot;:&quot;2016&quot;},{&quot;label&quot;:&quot;2015&quot;,&quot;value&quot;:&quot;2015&quot;},{&quot;label&quot;:&quot;2014&quot;,&quot;value&quot;:&quot;2014&quot;},{&quot;label&quot;:&quot;2013&quot;,&quot;value&quot;:&quot;2013&quot;},{&quot;label&quot;:&quot;2012&quot;,&quot;value&quot;:&quot;2012&quot;},{&quot;label&quot;:&quot;2011&quot;,&quot;value&quot;:&quot;2011&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;AnalysisYear&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true,&quot;defaultValue&quot;:2020},{&quot;label&quot;:&quot;Please enter the length of the period of analysis:&quot;,&quot;widget&quot;:&quot;choicesjs&quot;,&quot;tableView&quot;:true,&quot;defaultValue&quot;:3,&quot;data&quot;:{&quot;values&quot;:[{&quot;label&quot;:&quot;3-Year Analysis&quot;,&quot;value&quot;:&quot;3&quot;},{&quot;label&quot;:&quot;4-Year Analysis&quot;,&quot;value&quot;:&quot;4&quot;},{&quot;label&quot;:&quot;5-Year Analysis&quot;,&quot;value&quot;:&quot;5&quot;},{&quot;label&quot;:&quot;6-Year Analysis&quot;,&quot;value&quot;:&quot;6&quot;},{&quot;label&quot;:&quot;7-Year Analysis&quot;,&quot;value&quot;:&quot;7&quot;}]},&quot;validate&quot;:{&quot;required&quot;:true},&quot;key&quot;:&quot;AnalysisPeriod&quot;,&quot;type&quot;:&quot;select&quot;,&quot;indexeddb&quot;:{&quot;filter&quot;:{}},&quot;input&quot;:true},{&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;&lt;b&gt;Please choose all the information from the company's 10-K you want to see for your comparables analysis based on keyword:&lt;/b&gt;&quot;,&quot;key&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;label&quot;},{&quot;label&quot;:&quot;Segment Reporting&quot;,&quot;tooltip&quot;:&quot;Business Segment/Geographic Segment Data&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;SegmentReporting&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Acquisition/Disposition&quot;,&quot;tooltip&quot;:&quot;Company's Acquisition/Disposition Information in the Year of Analysis&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;AcquisitionDisposition&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Income Taxes&quot;,&quot;tooltip&quot;:&quot;Detailed Accounting of Income Taxes&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;IncomeTaxes&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Intangible Assets&quot;,&quot;tooltip&quot;:&quot;Detailed Accounting of Intangible Assets&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;IntangibleAssets&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;R&amp;D Expense&quot;,&quot;tooltip&quot;:&quot;Detailed Information on Company's R&amp;D Expense&quot;,&quot;tableView&quot;:false,&quot;defaultValue&quot;:false,&quot;key&quot;:&quot;RDExpense&quot;,&quot;type&quot;:&quot;checkbox&quot;,&quot;input&quot;:true},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="564,2306.66666666667" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
       <ufa:FormActivity.Body>
         <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1206.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,2180.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Form Response JSON: &quot; + FormResponse]" />
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON - Form Response JSON" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[FormResponseObject]" JsonString="[FormResponse]" />
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Form Response JSON: &quot; + FormResponse]" />
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON - Form Response JSON" sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[FormResponseObject]" JsonString="[FormResponse]" />
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[io_Config("InputCSVFilePath")]</OutArgument>
               </Assign.To>
@@ -98,7 +99,7 @@
                 <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("InputCSVFilePath")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[io_Config("RootFolderPath")]</OutArgument>
               </Assign.To>
@@ -106,7 +107,7 @@
                 <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("RootFolderPath")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[io_Config("AnalysisYear")]</OutArgument>
               </Assign.To>
@@ -114,7 +115,7 @@
                 <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("AnalysisYear")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[io_Config("AnalysisPeriod")]</OutArgument>
               </Assign.To>
@@ -122,44 +123,80 @@
                 <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("AnalysisPeriod")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_Config("SegmentReporting")]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("SegmentReporting")]</InArgument>
+                <InArgument x:TypeArguments="x:String">Consolidated,</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <If Condition="[CBool(FormResponseObject.SelectToken(&quot;SegmentReporting&quot;))]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[KeywordString + "Segment,"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <If Condition="[CBool(FormResponseObject.SelectToken(&quot;AcquisitionDisposition&quot;))]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[KeywordString + "Acquisition,Business Combination,"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <If Condition="[CBool(FormResponseObject.SelectToken(&quot;IncomeTaxes&quot;))]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[KeywordString + "Income Tax,"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <If Condition="[CBool(FormResponseObject.SelectToken(&quot;IntangibleAssets&quot;))]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[KeywordString + "Intangible,"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <If Condition="[CBool(FormResponseObject.SelectToken(&quot;RDExpense&quot;))]" sap:VirtualizedContainerService.HintSize="484,216" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[KeywordString + "Research,"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_10">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_Config("AcquisitionDisposition")]</OutArgument>
+                <OutArgument x:TypeArguments="x:Object">[io_Config("KeywordString")]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("AcquisitionDisposition")]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_7">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_Config("IncomeTaxes")]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("IncomeTaxes")]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_8">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_Config("IntangibleAssets")]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("IntangibleAssets")]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_9">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Object">[io_Config("RDExpense")]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Object">[FormResponseObject.SelectToken("RDExpense")]</InArgument>
+                <InArgument x:TypeArguments="x:Object">[KeywordString]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
