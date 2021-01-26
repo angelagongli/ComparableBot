@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,2960.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1254,3276</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>MakeConciseCompDataWorkbook_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -82,7 +82,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Make Concise Comp Data Workbook from the comparable company's 10-K data contained in the 10-K Filing Excel Document posted on the SEC's website based on keyword specified by the analyst" DisplayName="MakeConciseCompDataWorkbook" sap:VirtualizedContainerService.HintSize="797.333333333333,2856" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Make Concise Comp Data Workbook from the comparable company's 10-K data contained in the 10-K Filing Excel Document posted on the SEC's website based on keyword specified by the analyst" DisplayName="MakeConciseCompDataWorkbook" sap:VirtualizedContainerService.HintSize="897.333333333333,3171.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="WorkbookSheets" />
       <Variable x:TypeArguments="x:Boolean" Name="ContainsKeyword" />
@@ -96,7 +96,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="755.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="855.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
       </Assign.To>
@@ -104,7 +104,7 @@
         <InArgument x:TypeArguments="x:String">[in_Config("KeywordString").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="755.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="855.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[KeywordString]</OutArgument>
       </Assign.To>
@@ -112,7 +112,7 @@
         <InArgument x:TypeArguments="x:String">[KeywordString.Substring(0, KeywordString.Length - 1)]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="755.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="855.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[KeywordArr]</OutArgument>
       </Assign.To>
@@ -120,9 +120,9 @@
         <InArgument x:TypeArguments="s:String[]">[KeywordString.Split(","c)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteCell Cell="A1" DisplayName="Write Cell - Company Name and Year" sap:VirtualizedContainerService.HintSize="755.333333333333,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Concise Comp Data Workbook Info" Text="[in_CompanyName + &quot; FY&quot; + in_Year.ToString]" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" />
-    <ui:WriteCell Cell="A2" DisplayName="Write Cell - Keyword Basis" sap:VirtualizedContainerService.HintSize="755.333333333333,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Concise Comp Data Workbook Info" Text="Keyword Basis of Concise Comp Data Workbook:" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" />
-    <Assign sap:VirtualizedContainerService.HintSize="755.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <ui:WriteCell Cell="A1" DisplayName="Write Cell - Company Name and Year" sap:VirtualizedContainerService.HintSize="855.333333333333,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Concise Comp Data Workbook Info" Text="[in_CompanyName + &quot; FY&quot; + in_Year.ToString]" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" />
+    <ui:WriteCell Cell="A2" DisplayName="Write Cell - Keyword Basis" sap:VirtualizedContainerService.HintSize="855.333333333333,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Concise Comp Data Workbook Info" Text="Keyword Basis of Concise Comp Data Workbook:" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" />
+    <Assign sap:VirtualizedContainerService.HintSize="855.333333333333,62" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[i]</OutArgument>
       </Assign.To>
@@ -130,7 +130,7 @@
         <InArgument x:TypeArguments="x:Int32">1</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="755.333333333333,447.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[KeywordArr]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="855.333333333333,447.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[KeywordArr]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -155,56 +155,76 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="755.333333333333,1514" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="855.333333333333,1829.33333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[String.Format(&quot;{0}\{1}\{1}_{2}.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do - Make Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="721.333333333333,1405.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do - Make Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="821.333333333333,1720.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets - Company's 10-K Filing Excel Document" sap:VirtualizedContainerService.HintSize="679.333333333333,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[WorkbookSheets]" />
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="679.333333333333,1251.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[WorkbookSheets]">
+            <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets - Company's 10-K Filing Excel Document" sap:VirtualizedContainerService.HintSize="779.333333333333,22" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[WorkbookSheets]" />
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="779.333333333333,1566.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[WorkbookSheets]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="sheet" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="642.666666666667,1116" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="742.666666666667,1431.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="600.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sheet Name: &quot; + sheet]" />
-                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="600.666666666667,787.333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[KeywordArr]">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="700.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Sheet Name: &quot; + sheet]" />
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="700.666666666667,1102.66666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[KeywordArr]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:String">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:String" Name="keyword" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,652" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="664,967.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:IsMatch BuilderPattern="item + &quot;*&quot;&quot;*&quot; + item" DisplayName="Is Match - Keyword in Sheet Name" sap:VirtualizedContainerService.HintSize="522,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[sheet]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;in_Keyword + \&quot;*\&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[keyword + &quot;*&quot;]" RegexOption="IgnoreCase" Result="[ContainsKeyword]" />
-                            <If Condition="[ContainsKeyword]" sap:VirtualizedContainerService.HintSize="522,461.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                            <ui:IsMatch BuilderPattern="item + &quot;*&quot;&quot;*&quot; + item" DisplayName="Is Match - Keyword in Sheet Name" sap:VirtualizedContainerService.HintSize="622,58.6666666666667" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[sheet]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;in_Keyword + \&quot;*\&quot;&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[keyword + &quot;*&quot;]" RegexOption="IgnoreCase" Result="[ContainsKeyword]" />
+                            <If Condition="[ContainsKeyword]" sap:VirtualizedContainerService.HintSize="622,776.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                               <If.Then>
-                                <Sequence DisplayName="Sequence - Put Sheet into Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="376,310.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                <Sequence DisplayName="Sequence - Put Sheet into Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="476,626" sap2010:WorkflowViewState.IdRef="Sequence_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sheet Name Contains Keyword&quot;]" />
-                                  <ui:ExcelCopySheet DestinationFilePath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" DestinationSheetName="[sheet]" DisplayName="Copy Sheet - Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="[sheet]" />
-                                  <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Sheet Name Contains Keyword&quot;]" />
+                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,337.333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                    <TryCatch.Try>
+                                      <ui:ExcelCopySheet DestinationFilePath="[String.Format(&quot;{0}\{1}\{1}_{2}Concise.XLSX&quot;, in_Config(&quot;RootFolderPath&quot;), in_CompanyName, in_Year)]" DestinationSheetName="[sheet]" DisplayName="Copy Sheet - Concise Comp Data Workbook" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="[sheet]" />
+                                    </TryCatch.Try>
+                                    <TryCatch.Catches>
+                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,165.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ActivityAction x:TypeArguments="s:Exception">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                          </ActivityAction.Argument>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Error making copy of worksheet: &quot; + exception.Message]" />
+                                        </ActivityAction>
+                                      </Catch>
+                                    </TryCatch.Catches>
+                                  </TryCatch>
+                                  <ui:Break sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Break_1" />
                                 </Sequence>
                               </If.Then>
                             </If>
@@ -212,7 +232,7 @@
                         </ActivityAction>
                       </ui:ForEach.Body>
                     </ui:ForEach>
-                    <Assign sap:VirtualizedContainerService.HintSize="600.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign sap:VirtualizedContainerService.HintSize="700.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[ContainsKeyword]</OutArgument>
                       </Assign.To>
